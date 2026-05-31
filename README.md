@@ -1,1 +1,2 @@
-My first radme
+My first readme
+Updating project collaboration details
