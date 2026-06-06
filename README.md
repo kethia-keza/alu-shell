@@ -1,1 +1,2 @@
-ALU Shell Basics Project
+My first readme
+Updating project collaboration details
