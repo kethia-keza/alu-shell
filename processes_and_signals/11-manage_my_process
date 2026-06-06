@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# This script manages the start, stop, and restart lifecycle of manage_my_process
+
+PID_FILE="/var/run/my_process.pid"
+DAEMON="./manage_my_process"
+
+case "$1" in
+    start)
+        if [ ! -f "$DAEMON" ]; then
+            DAEMON="/alu-shell/processes_and_signals/manage_my_process"
+        fi
+        $DAEMON &
+        echo $! > "$PID_FILE"
+        echo "manage_my_process started"
+        ;;
+    stop)
+        if [ -f "$PID_FILE" ]; then
+            kill "$(cat "$PID_FILE")"
+            rm -f "$PID_FILE"
+        fi
+        echo "manage_my_process stopped"
+        ;;
+    restart)
+        if [ -f "$PID_FILE" ]; then
+            kill "$(cat "$PID_FILE")"
+            rm -f "$PID_FILE"
+        fi
+        if [ ! -f "$DAEMON" ]; then
+            DAEMON="/alu-shell/processes_and_signals/manage_my_process"
+        fi
+        $DAEMON &
+        echo $! > "$PID_FILE"
+        echo "manage_my_process restarted"
+        ;;
+    *)
+        echo "Usage: manage_my_process {start|stop|restart}"
+        exit 1
+        ;;
+esac
