@@ -1,2 +1,1 @@
-My first readme
-Updating project collaboration details
+ALU System Engineering Shell Basics Repository
