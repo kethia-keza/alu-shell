@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script traps SIGTERM to display a message instead of terminating
+
+trap 'echo "I am invincible!!!"' SIGTERM
+
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
