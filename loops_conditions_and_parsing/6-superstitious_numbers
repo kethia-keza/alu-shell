@@ -20,6 +20,6 @@ do
         *)
             echo "$counter"
             ;;
-    case
+    esac
     counter=$((counter + 1))
 done
