@@ -2,7 +2,7 @@
 # This script lists files in the current directory, showing only names after the first dash
 
 for file in *
-in
+do
     if [ -f "$file" ]
     then
         echo "$file" | cut -d '-' -f 2-
